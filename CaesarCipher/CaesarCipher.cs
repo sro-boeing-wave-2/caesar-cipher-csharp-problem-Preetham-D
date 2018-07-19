@@ -9,6 +9,7 @@ namespace CaesarCipher
         {
             
             int[] asciiArray = new int[text.Length];
+            int modKey = shiftKey % 26;
             Char[] textArray = text.ToCharArray();
             for (int i = 0; i < text.Length; i++)
             {
@@ -16,12 +17,12 @@ namespace CaesarCipher
                 //Console.Write(asciiArray[i]);
                 if ((asciiArray[i] >= (int)'A' && asciiArray[i] <= (int)'Z'))
                 {
-                    asciiArray[i] += shiftKey;
+                    asciiArray[i] += modKey;
                     if (asciiArray[i] > (int)'Z') asciiArray[i] -= 26;
                 }
                 if (asciiArray[i] >= (int)'a' && asciiArray[i] <= (int)'z')
                 {
-                    asciiArray[i] += shiftKey;
+                    asciiArray[i] += modKey;
                     if (asciiArray[i] > (int)'z') asciiArray[i] -= 26;
                 }
             }
